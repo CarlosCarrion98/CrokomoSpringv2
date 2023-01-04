@@ -3,7 +3,7 @@ package org.objects;
 import java.util.ArrayList;
 import org.springframework.stereotype.Component;
 
-@Component("Solucion")
+@Component
 public class Solucion {
 	private ArrayList<Requisito> requisitos;
 	

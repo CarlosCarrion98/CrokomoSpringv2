@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import org.objects.relations.UsuarioProyecto;
 import org.springframework.stereotype.Component;
 
-@Component("Usuario")
+@Component
 public class Usuario {
 	private String userName;
 	private String password;
@@ -20,6 +20,16 @@ public class Usuario {
 		else
 			this.relacionesProyecto = new ArrayList<>();
 		
+	}
+	
+	public Usuario (Usuario usuario) {
+		if (usuario != null) {
+			this.userName = usuario.userName;
+			this.password = usuario.userName;
+			this.rol = usuario.rol;
+			this.relacionesProyecto = new ArrayList<UsuarioProyecto>();
+			this.relacionesProyecto.addAll(usuario.relacionesProyecto);
+		}
 	}
 
 	public String getUserName() {

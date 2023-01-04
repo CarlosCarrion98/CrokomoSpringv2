@@ -3,7 +3,7 @@ package org.objects;
 import java.util.ArrayList;
 import org.springframework.stereotype.Component;
 
-@Component("Proyecto")
+@Component
 public class Proyecto {
 	private int idProyecto;
 	private String nombreProyecto;
@@ -16,6 +16,13 @@ public class Proyecto {
 		this.clientes = new ArrayList<>();
 		if(clientes != null) {
 			setCliente(clientes);
+		}
+	}
+	
+	public Proyecto(Proyecto proyecto) {
+		if (proyecto != null) {
+			this.idProyecto = proyecto.idProyecto;
+			this.nombreProyecto = proyecto.nombreProyecto;
 		}
 	}
 

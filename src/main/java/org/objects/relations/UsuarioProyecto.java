@@ -1,28 +1,35 @@
 package org.objects.relations;
 
+import org.objects.Proyecto;
+import org.objects.Usuario;
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class UsuarioProyecto {
-	private String userName;
-	private int idProyecto;
+	private Usuario usuario;
+	private Proyecto proyecto;
 	
-	public UsuarioProyecto(int idProyecto, String userName) {
-		this.idProyecto = idProyecto;
-		this.userName = userName;
+	@Autowired
+	public UsuarioProyecto(Usuario usuario, Proyecto proyecto) {
+		this.usuario = usuario;
+		this.proyecto = proyecto;
 	}
 
-	public String getUserName() {
-		return userName;
+	public Usuario getUsuario() {
+		return this.usuario;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	@Autowired
+	public void setUserName(Usuario o) {
+		this.usuario = new Usuario(o);
 	}
 
-	public int getIdProyecto() {
-		return idProyecto;
+	public Proyecto Proyecto() {
+		return this.proyecto;
 	}
 
-	public void setIdProyecto(int idProyecto) {
-		this.idProyecto = idProyecto;
+	@Autowired
+	public void setProyecto(Proyecto o) {
+		this.proyecto = new Proyecto(o);
 	}
 	
 	

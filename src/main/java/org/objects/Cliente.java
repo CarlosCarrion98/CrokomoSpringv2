@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.objects.relations.ClienteRequisito;
 import org.springframework.stereotype.Component;
 
-@Component("Cliente")
+@Component
 public class Cliente {
 	
 	private int idCliente;
@@ -34,6 +34,16 @@ public class Cliente {
 		}
 		this.nombreCliente = nombreCliente;
 		this.idProyecto = idProyecto;
+	}
+	
+	public Cliente(Cliente cliente) {
+		if (cliente != null) {
+			this.idCliente = cliente.idCliente;
+			this.idProyecto = cliente.idProyecto;
+			this.nombreCliente = cliente.nombreCliente;
+			this.relacionesRequisito = new ArrayList<ClienteRequisito>();
+			this.relacionesRequisito.addAll(cliente.relacionesRequisito);	
+		}
 	}
 	
 	public int getIdCliente() {

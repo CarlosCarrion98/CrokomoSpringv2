@@ -1,30 +1,38 @@
 package org.objects.relations;
 
+import org.objects.Cliente;
+import org.objects.Requisito;
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class ClienteRequisito {
 	
 	
-	private int idCliente;
-	private int idRequisito;
+	private Cliente cliente;
+	private Requisito requisito;
 	private int valor;
 	
-	public ClienteRequisito(int idCliente, int idRequisito, int valor) {
-		this.idCliente = idCliente;
-		this.setIdRequisito(idRequisito);
+	@Autowired
+	public ClienteRequisito(Cliente cliente, Requisito requisito, int valor) {
+		this.cliente = cliente;
+		this.requisito = requisito;
 		this.valor = valor;
 	}
 	
-	public int getIdCliente() {
-		return idCliente;
+	public Cliente getIdCliente() {
+		return cliente;
 	}
-	public void setIdCliente(int idCliente) {
-		this.idCliente = idCliente;
+	
+	@Autowired
+	public void setCliente(Cliente o) {
+		this.cliente = new Cliente(o);
 	}
-	public int getIdRequisito() {
-		return idRequisito;
+	public Requisito getRequisito() {
+		return requisito;
 	}
 
-	public void setIdRequisito(int idRequisito) {
-		this.idRequisito = idRequisito;
+	@Autowired
+	public void setRequisito(Requisito o) {
+		this.requisito = new Requisito(o);
 	}
 
 	public int getValor() {
@@ -35,9 +43,9 @@ public class ClienteRequisito {
 	}
 	
 	public boolean equals(ClienteRequisito cr) {
-		if(this.idCliente != cr.idCliente)
+		if(this.cliente.getIdCliente() != cr.getIdCliente().getIdCliente())
 			return false;
-		if(this.idRequisito != cr.idRequisito)
+		if(this.requisito.getIdRequisito() != cr.requisito.getIdRequisito())
 			return false;
 		return true;
 	}
