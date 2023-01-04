@@ -1,32 +1,43 @@
 package org.objects.relations;
 
+import org.objects.Requisito;
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class RelacionRequisito {
 	
-	private int idRequisito1;
-	private int idRequisito2;
+	private Requisito re1;
+	private Requisito re2;
 	private String tipoRelacion;
 	
-	public RelacionRequisito(int idRequisito1, int idRequisito2, String tipoRelacion) {
-		this.idRequisito1 = idRequisito1;
-		this.idRequisito2 = idRequisito2;
+	@Autowired
+	public RelacionRequisito(Requisito re1, Requisito re2, String tipoRelacion) {
+		this.re1 = re1;
+		this.re2 = re2;
 		this.tipoRelacion = tipoRelacion;
 	}
 	
-	public int getIdRequisito1() {
-		return idRequisito1;
+	public Requisito getRequisito1() {
+		return re1;
 	}
-	public void setIdRequisito1(int idRequisito1) {
-		this.idRequisito1 = idRequisito1;
+	
+	@Autowired
+	public void setIdRequisito1(Requisito o) {
+		this.re1 = new Requisito(o);
 	}
-	public int getIdRequisito2() {
-		return idRequisito2;
+	
+	public Requisito getRequisito2() {
+		return re2;
 	}
-	public void setIdRequisito2(int idRequisito2) {
-		this.idRequisito2 = idRequisito2;
+	
+	@Autowired
+	public void setIdRequisito2(Requisito o) {
+		this.re2 = new Requisito(o);
 	}
+	
 	public String getTipoRelacion() {
 		return tipoRelacion;
 	}
+	
 	public void setTipoRelacion(String tipoRelacion) {
 		this.tipoRelacion = tipoRelacion;
 	}
