@@ -1,10 +1,11 @@
 package org.objects;
 
 import java.util.ArrayList;
-
 import org.objects.relations.ClienteRequisito;
 import org.objects.relations.RelacionRequisito;
+import org.springframework.stereotype.Component;
 
+@Component("Requisito")
 public class Requisito {
 
 	private int idRequisito;

@@ -1,9 +1,10 @@
 package org.objects;
 
 import java.util.ArrayList;
-
 import org.objects.relations.UsuarioProyecto;
+import org.springframework.stereotype.Component;
 
+@Component("Usuario")
 public class Usuario {
 	private String userName;
 	private String password;

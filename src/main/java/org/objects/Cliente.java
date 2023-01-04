@@ -3,7 +3,9 @@ package org.objects;
 import java.util.ArrayList;
 
 import org.objects.relations.ClienteRequisito;
+import org.springframework.stereotype.Component;
 
+@Component("Cliente")
 public class Cliente {
 	
 	private int idCliente;

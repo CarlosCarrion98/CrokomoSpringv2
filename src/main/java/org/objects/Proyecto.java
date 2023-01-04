@@ -1,7 +1,9 @@
 package org.objects;
 
 import java.util.ArrayList;
+import org.springframework.stereotype.Component;
 
+@Component("Proyecto")
 public class Proyecto {
 	private int idProyecto;
 	private String nombreProyecto;
