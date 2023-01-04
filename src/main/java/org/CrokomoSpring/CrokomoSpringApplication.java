@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CrokomoSpringApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CrokomoSpringApplication.class, args);
+		SpringApplication.run(CrokomoSpringApplication.class, args); 
 	}
 
 }
