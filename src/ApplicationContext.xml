@@ -7,7 +7,7 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context-3.1.xsd">
   
-  	<context:component-scan base-package="org"></context:component-scan>
+  	<context:component-scan base-package="org.objects"></context:component-scan>
   	
   	
 </beans>
