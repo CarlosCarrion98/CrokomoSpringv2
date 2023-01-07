@@ -6,11 +6,18 @@ import org.hibernate.cfg.Configuration;
 
 public class HibernateConfig <T> {
 	
-	SessionFactory mySession;
+	private SessionFactory mySession;
 	
 	public HibernateConfig(T entity) {
-		mySession = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(entity.getClass()).buildSessionFactory();
-		System.out.println("Todo gucci");
+		setMySession(new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(entity.getClass()).buildSessionFactory());
+	}
+
+	public SessionFactory getMySession() {
+		return mySession;
+	}
+
+	public void setMySession(SessionFactory mySession) {
+		this.mySession = mySession;
 	}
 
 }

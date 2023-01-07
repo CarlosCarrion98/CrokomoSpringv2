@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>org</groupId>
 	<artifactId>CrokomoSpringv2</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.3-SNAPSHOT</version>
 	<name>CrokomoSpring</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -44,6 +44,13 @@
     		<artifactId>hibernate-core</artifactId>
     		<version>5.6.14.Final</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>4.1.0.Final</version>
+		</dependency>
+
 		<dependency>
 			<groupId>io.projectreactor</groupId>
 			<artifactId>reactor-test</artifactId>
