@@ -16,6 +16,12 @@ public class Cliente {
 	
 	ArrayList<ClienteRequisito> relacionesRequisito;
 	
+	public Cliente() {
+		this.peso = 0;
+		this.relacionesRequisito = new ArrayList<>();
+		this.nombreCliente = "";
+	}
+	
 	
 	public Cliente(int idCliente, int peso, String nombreCliente, int idProyecto) {
 		this.idCliente = idCliente;
