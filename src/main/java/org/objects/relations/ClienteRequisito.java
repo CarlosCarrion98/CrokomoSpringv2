@@ -6,13 +6,18 @@ import org.objects.Cliente;
 import org.objects.Requisito;
 import org.springframework.beans.factory.annotation.Autowired;
 
+@Entity
+@Table(name="cliente_has_requisito")
 public class ClienteRequisito {
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinColumn(name="idCliente")
 	private Cliente cliente;
 	
+	//Falta por mapear
 	private Requisito requisito;
+	
+	@Column(name="valor")
 	private int valor;
 	
 	@Autowired
