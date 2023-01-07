@@ -25,7 +25,7 @@ public class Cliente {
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinColumn(name="idProyecto")
-	private int idProyecto;
+	private Proyecto proyecto;
 
 	@OneToMany(mappedBy = "cliente", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
 	ArrayList<ClienteRequisito> relacionesRequisito;
@@ -37,14 +37,14 @@ public class Cliente {
 	}
 	
 	
-	public Cliente(int peso, String nombreCliente, int idProyecto) {
+	public Cliente(int peso, String nombreCliente, Proyecto proyecto) {
 		this.peso = peso;
 		this.relacionesRequisito = new ArrayList<>();
 		this.nombreCliente = nombreCliente;
-		this.idProyecto = idProyecto;
+		this.proyecto = proyecto;
 	}
 	
-	public Cliente(int idCliente, int peso, ArrayList<ClienteRequisito> relaciones, String nombreCliente, int idProyecto) {
+	public Cliente(int idCliente, int peso, ArrayList<ClienteRequisito> relaciones, String nombreCliente, Proyecto proyecto) {
 		this.idCliente = idCliente;
 		this.peso = peso;
 		this.relacionesRequisito = new ArrayList<>();
@@ -52,13 +52,13 @@ public class Cliente {
 			this.relacionesRequisito.add(cr);
 		}
 		this.nombreCliente = nombreCliente;
-		this.idProyecto = idProyecto;
+		this.proyecto = proyecto;
 	}
 	
 	public Cliente(Cliente cliente) {
 		if (cliente != null) {
 			this.idCliente = cliente.idCliente;
-			this.idProyecto = cliente.idProyecto;
+			this.proyecto = cliente.proyecto;
 			this.nombreCliente = cliente.nombreCliente;
 			this.relacionesRequisito = new ArrayList<ClienteRequisito>();
 			this.relacionesRequisito.addAll(cliente.relacionesRequisito);	
@@ -88,12 +88,12 @@ public class Cliente {
 		this.nombreCliente = nombreCliente;
 	}
 	
-	public int getIdProyecto() {
-		return idProyecto;
+	public Proyecto getProyecto() {
+		return proyecto;
 	}
 
-	public void setIdProyecto(int idProyecto) {
-		this.idProyecto = idProyecto;
+	public void setProyecto(Proyecto proyecto) {
+		this.proyecto = proyecto;
 	}
 
 	public ArrayList<ClienteRequisito> getRelacionesRequisito() {

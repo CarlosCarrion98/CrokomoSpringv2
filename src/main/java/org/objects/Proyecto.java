@@ -19,7 +19,7 @@ public class Proyecto {
 	@Column(name="nombreProyecto")
 	private String nombreProyecto;
 	
-	@OneToMany(mappedBy = "idProyecto", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+	@OneToMany(mappedBy = "proyecto", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
 	private ArrayList<Cliente> clientes;
 	
 	public Proyecto(int idProyecto, String nombreProyecto, ArrayList<Cliente> clientes) {

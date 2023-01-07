@@ -1,18 +1,36 @@
 package org.objects;
 
 import java.util.ArrayList;
+
+import javax.persistence.*;
+
 import org.objects.relations.ClienteRequisito;
 import org.objects.relations.RelacionRequisito;
 import org.springframework.stereotype.Component;
 
 @Component
+@Entity
+@Table(name="requisito")
 public class Requisito {
 
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="idRequisito")
 	private int idRequisito;
+	
+	@Column(name = "esfuerzo")
 	private int esfuerzo;
+	
+	@Column(name = "nombreRequisito")
 	private String nombreRequisito;
+	
 	private int satisfaccion;
+	
+	
 	private ArrayList<RelacionRequisito> listaDeRequisitos;
+	
+	@OneToMany(mappedBy = "requisito", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
 	private ArrayList<ClienteRequisito> relaciones;
 	
 	/*
