@@ -29,6 +29,8 @@ public class Requisito {
 	
 	
 	private ArrayList<RelacionRequisito> listaDeRequisitos;
+	
+	@OneToMany(mappedBy = "requisito", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
 	private ArrayList<ClienteRequisito> relaciones;
 	
 	/*

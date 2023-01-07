@@ -15,8 +15,9 @@ public class ClienteRequisito {
 	@JoinColumn(name="idCliente")
 	private Cliente cliente;
 	
-	//Falta por mapear
 	@Id
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+	@JoinColumn(name="idRequisito")
 	private Requisito requisito;
 	
 	@Column(name="valor")
