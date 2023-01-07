@@ -33,7 +33,7 @@ public class ClienteRequisito {
 		return cliente;
 	}
 	
-	@Autowired
+	
 	public void setCliente(Cliente o) {
 		this.cliente = new Cliente(o);
 	}
@@ -41,7 +41,7 @@ public class ClienteRequisito {
 		return requisito;
 	}
 
-	@Autowired
+	
 	public void setRequisito(Requisito o) {
 		this.requisito = new Requisito(o);
 	}

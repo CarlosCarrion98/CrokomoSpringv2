@@ -18,7 +18,7 @@ public class UsuarioProyecto {
 		return this.usuario;
 	}
 
-	@Autowired
+
 	public void setUserName(Usuario o) {
 		this.usuario = new Usuario(o);
 	}
@@ -27,7 +27,7 @@ public class UsuarioProyecto {
 		return this.proyecto;
 	}
 
-	@Autowired
+
 	public void setProyecto(Proyecto o) {
 		this.proyecto = new Proyecto(o);
 	}

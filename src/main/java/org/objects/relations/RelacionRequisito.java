@@ -20,7 +20,7 @@ public class RelacionRequisito {
 		return re1;
 	}
 	
-	@Autowired
+
 	public void setIdRequisito1(Requisito o) {
 		this.re1 = new Requisito(o);
 	}
@@ -29,7 +29,7 @@ public class RelacionRequisito {
 		return re2;
 	}
 	
-	@Autowired
+
 	public void setIdRequisito2(Requisito o) {
 		this.re2 = new Requisito(o);
 	}
