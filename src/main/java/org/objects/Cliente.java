@@ -2,15 +2,27 @@ package org.objects;
 
 import java.util.ArrayList;
 
+import javax.persistence.*;
+
 import org.objects.relations.ClienteRequisito;
 import org.springframework.stereotype.Component;
 
 @Component
+@Entity
+@Table(name="cliente")
 public class Cliente {
 	
+	@Id
+	@Column(name="idCliente")
 	private int idCliente;
+	
+	@Column(name="peso")
 	private int peso;
+	
+	@Column(name="nombreCliente")
 	private String nombreCliente;
+	
+	@Column(name="idProyecto")
 	private int idProyecto;
 
 	
@@ -23,8 +35,7 @@ public class Cliente {
 	}
 	
 	
-	public Cliente(int idCliente, int peso, String nombreCliente, int idProyecto) {
-		this.idCliente = idCliente;
+	public Cliente(int peso, String nombreCliente, int idProyecto) {
 		this.peso = peso;
 		this.relacionesRequisito = new ArrayList<>();
 		this.nombreCliente = nombreCliente;

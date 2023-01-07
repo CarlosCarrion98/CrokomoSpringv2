@@ -25,7 +25,7 @@ public class GenericDAOImpl<T, ID extends Serializable> implements GenericDAO<T,
 
 	@Override
 	public void saveOrUpdate(T entity) {
-		Session session = hc.getMySession().getCurrentSession();
+		Session session = hc.getMySession().openSession();
 		try {
 			session.beginTransaction();
 			session.persist(entity);
@@ -64,13 +64,16 @@ public class GenericDAOImpl<T, ID extends Serializable> implements GenericDAO<T,
 				LOGGER.log(Level.WARNING,"Falló al hacer un rollback", exc);
 			}
 			throw new RuntimeException(ex);
+		} finally {
+			if(session.getTransaction().isActive()) session.close();
 		}
+		
 	}
 
 	@Override
 	public T get(ID id) {
 		T entity = null;
-		Session session = hc.getMySession().getCurrentSession();
+		Session session = hc.getMySession().openSession();
 		try {
 			session.beginTransaction();
 			entity = (T) session.get(getEntityClass(), id);
@@ -111,13 +114,15 @@ public class GenericDAOImpl<T, ID extends Serializable> implements GenericDAO<T,
 				LOGGER.log(Level.WARNING,"Falló al hacer un rollback", exc);
 			}
 			throw new RuntimeException(ex);
+		} finally {
+			if(session.getTransaction().isActive()) session.close();
 		}
 		return entity;
 	}
 
 	@Override
 	public void delete(ID id)  {
-		Session session = hc.getMySession().getCurrentSession();
+		Session session = hc.getMySession().openSession();
 		try {
 			session.beginTransaction();
 			T entity = (T) session.get(getEntityClass(), id);
@@ -160,12 +165,14 @@ public class GenericDAOImpl<T, ID extends Serializable> implements GenericDAO<T,
 				LOGGER.log(Level.WARNING,"Falló al hacer un rollback", exc);
 			}
 			throw new RuntimeException(ex);
+		} finally {
+			if(session.getTransaction().isActive()) session.close();
 		}
 	}
 
 	@Override
 	public List<T> findAll() {
-		Session session = hc.getMySession().getCurrentSession();
+		Session session = hc.getMySession().openSession();
 		List<T> entities = new ArrayList<T>();
 		try {
 
@@ -207,6 +214,8 @@ public class GenericDAOImpl<T, ID extends Serializable> implements GenericDAO<T,
 				LOGGER.log(Level.WARNING,"Falló al hacer un rollback", exc);
 			}
 			throw new RuntimeException(ex);
+		} finally {
+			if(session.getTransaction().isActive()) session.close();
 		}
 		return entities;
 	}

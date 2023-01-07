@@ -1,5 +1,7 @@
 package org.CrokomoSpring;
 
+import org.bd.dao.ClienteDAO;
+import org.bd.dao.impl.ClienteDAOImpl;
 import org.bd.hibernate.config.HibernateConfig;
 import org.objects.Cliente;
 import org.springframework.boot.SpringApplication;
@@ -19,6 +21,9 @@ public class CrokomoSpringApplication {
 //		Ejemplo de llamada a HibernateConfig para un objeto
 //		HibernateConfig<Cliente> configuationBD = new HibernateConfig<Cliente>(new Cliente(0, 0, null, 0));
 		
+		//Ejemplo de uso de un DAO
+//		ClienteDAO cdao = new ClienteDAOImpl();
+//		cdao.saveOrUpdate(new Cliente(""));
 		//Pedir el bean
 		
 		
