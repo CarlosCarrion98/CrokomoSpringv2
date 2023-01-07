@@ -25,7 +25,7 @@ public class Cliente {
 	@Column(name="idProyecto")
 	private int idProyecto;
 
-	
+	@OneToMany(mappedBy = "cliente", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
 	ArrayList<ClienteRequisito> relacionesRequisito;
 	
 	public Cliente() {

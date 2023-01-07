@@ -1,13 +1,17 @@
 package org.objects.relations;
 
+import javax.persistence.*;
+
 import org.objects.Cliente;
 import org.objects.Requisito;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class ClienteRequisito {
 	
-	
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+	@JoinColumn(name="idCliente")
 	private Cliente cliente;
+	
 	private Requisito requisito;
 	private int valor;
 	
