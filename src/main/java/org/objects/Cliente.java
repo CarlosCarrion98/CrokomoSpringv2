@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 public class Cliente {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="idCliente")
 	private int idCliente;
 	
@@ -22,7 +23,8 @@ public class Cliente {
 	@Column(name="nombreCliente")
 	private String nombreCliente;
 	
-	@Column(name="idProyecto")
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+	@JoinColumn(name="idProyecto")
 	private int idProyecto;
 
 	@OneToMany(mappedBy = "cliente", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})

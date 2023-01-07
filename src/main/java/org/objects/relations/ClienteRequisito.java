@@ -10,11 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Table(name="cliente_has_requisito")
 public class ClienteRequisito {
 	
+	@Id
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinColumn(name="idCliente")
 	private Cliente cliente;
 	
 	//Falta por mapear
+	@Id
 	private Requisito requisito;
 	
 	@Column(name="valor")

@@ -1,13 +1,25 @@
 package org.objects;
 
 import java.util.ArrayList;
+
+import javax.persistence.*;
+
 import org.springframework.stereotype.Component;
 
 @Component
+@Entity
+@Table(name="proyecto")
 public class Proyecto {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="idProyecto")
 	private int idProyecto;
+	
+	@Column(name="nombreProyecto")
 	private String nombreProyecto;
 	
+	@OneToMany(mappedBy = "idProyecto", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
 	private ArrayList<Cliente> clientes;
 	
 	public Proyecto(int idProyecto, String nombreProyecto, ArrayList<Cliente> clientes) {
