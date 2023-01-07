@@ -13,7 +13,7 @@ public class ServletInitializer extends AbstractAnnotationConfigDispatcherServle
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
 		// TODO Auto-generated method stub
-		return null;
+		return new Class[] {App.class};
 	}
 
 	@Override
