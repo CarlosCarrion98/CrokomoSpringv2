@@ -31,7 +31,5 @@ public class UsuarioProyecto {
 	public void setProyecto(Proyecto o) {
 		this.proyecto = new Proyecto(o);
 	}
-	
-	
 
 }
